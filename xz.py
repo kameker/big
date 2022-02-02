@@ -14,8 +14,7 @@ def show_image(x_coor, y_coor, scale):
     map_params = {
         "ll": ",".join([toponym_longitude, toponym_lattitude]),
         "spn": ",".join(spn),
-        "l": "map",
-        "pt": ",".join([toponym_longitude, toponym_lattitude])}
+        "l": "map"}
     with open('out.jpg', 'wb') as data:
         data.write(requests.get("http://static-maps.yandex.ru/1.x/", params=map_params).content)
 
