@@ -16,5 +16,8 @@ def show_image(x_coor, y_coor, scale):
         "spn": ",".join(spn),
         "l": "map",
         "pt": ",".join([toponym_longitude, toponym_lattitude])}
-    with open('out.jpg', 'wb') as out_file:
-        out_file.write(requests.get("http://static-maps.yandex.ru/1.x/", params=map_params).content)
+    with open('out.jpg', 'wb') as data:
+        data.write(requests.get("http://static-maps.yandex.ru/1.x/", params=map_params).content)
+
+
+#  show_image('50', '50', ('0.1', '0.1'))
