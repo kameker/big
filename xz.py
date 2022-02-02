@@ -1,5 +1,4 @@
 import requests
-import sys
 
 
 def degree(obj):
@@ -10,17 +9,10 @@ def degree(obj):
 
 
 def show_image(x_coor, y_coor, scale):
-    geocoder_params = {
-        "apikey": "40d1649f-0493-4b70-98ba-98533de7710b",
-        "geocode": " ",
-        "format": "json"}
-    response = requests.get("http://geocode-maps.yandex.ru/1.x/", params=geocoder_params)
-    toponym = response.json()["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
-    print(toponym)
-    toponym_longitude, toponym_lattitude = x_coor, y_coor
     spn = scale
+    toponym_longitude, toponym_lattitude = x_coor, y_coor
     map_params = {
-        "ll": ",".join([toponym_longitude, toponym_lattitude]),  # корды
+        "ll": ",".join([toponym_longitude, toponym_lattitude]),
         "spn": ",".join(spn),
         "l": "map",
         "pt": ",".join([toponym_longitude, toponym_lattitude])}
