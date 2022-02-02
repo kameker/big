@@ -1,6 +1,8 @@
 import sys
 
 from PyQt5 import QtGui
+from os import remove
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from main_qt import Ui_Form
 from xz import show_image
@@ -19,7 +21,15 @@ class Main(QMainWindow, Ui_Form):
         show_image(data[0], data[1], (data[2], data[2]))
         self.pix = QtGui.QPixmap('out.jpg')
         self.pictureLabel.setPixmap(self.pix)
-        return data
+        remove("out.jpg")
+
+    def keyPressEvent(self, event):
+        if self.scale_text.toPlainText():
+            if event.key() == Qt.Key_PageUp:
+                self.scale_text.setPlainText(str(int(self.scale_text.toPlainText()) + 15))
+            elif event.key() == Qt.Key_PageDown:
+                self.scale_text.setPlainText(str(int(self.scale_text.toPlainText()) - 15))
+        self.show_fun()
 
 
 def except_hook(cls, exception, traceback):

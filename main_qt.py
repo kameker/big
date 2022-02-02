@@ -6,7 +6,7 @@ class Ui_Form(object):
         Form.setObjectName("Form")
         Form.resize(852, 522)
         self.pictureLabel = QtWidgets.QLabel(Form)
-        self.pictureLabel.setGeometry(QtCore.QRect(20, 10, 491, 491))
+        self.pictureLabel.setGeometry(QtCore.QRect(20, 10, 500, 500))
         self.pictureLabel.setText("")
         self.pictureLabel.setObjectName("pictureLabel")
         self.x_text = QtWidgets.QTextEdit(Form)
