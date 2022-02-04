@@ -43,6 +43,12 @@ class Ui_Form(object):
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(850, 230, 47, 13))
         self.label_3.setObjectName("label_3")
+        self.sputnik = QtWidgets.QRadioButton(Form)
+        self.sputnik.setGeometry(QtCore.QRect(800, 280, 82, 17))
+        self.sputnik.setObjectName("sputnik")
+        self.radioButton_2 = QtWidgets.QRadioButton(Form)
+        self.radioButton_2.setGeometry(QtCore.QRect(800, 310, 82, 17))
+        self.radioButton_2.setObjectName("radioButton_2")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -54,3 +60,5 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "Широта"))
         self.label_2.setText(_translate("Form", "Долгота"))
         self.label_3.setText(_translate("Form", "Масштаб"))
+        self.sputnik.setText(_translate("Form", "Спутник"))
+        self.radioButton_2.setText(_translate("Form", "Схема"))

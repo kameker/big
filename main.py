@@ -15,10 +15,13 @@ class Main(QMainWindow, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.show_button.clicked.connect(self.show_fun)
+        self.sputnik.clicked.connect(self.s_p)
+        self.radioButton_2.clicked.connect(self.s_p)
+        self.type_s_p = "map"
 
     def show_fun(self):
         data = (str(self.x_text.toPlainText()), str(self.y_text.toPlainText()), str(self.scale_text.toPlainText()))
-        show_image(data[0], data[1], (data[2], data[2]))
+        show_image(data[0], data[1], (data[2], data[2]), self.type_s_p)
         self.pix = QtGui.QPixmap('out.jpg')
         self.pictureLabel.setPixmap(self.pix)
         remove("out.jpg")
@@ -29,6 +32,13 @@ class Main(QMainWindow, Ui_Form):
                 self.scale_text.setPlainText(str(int(self.scale_text.toPlainText()) + 15))
             elif event.key() == Qt.Key_PageDown:
                 self.scale_text.setPlainText(str(int(self.scale_text.toPlainText()) - 15))
+        self.show_fun()
+
+    def s_p(self):
+        if self.sputnik.isChecked():
+            self.type_s_p = "sat"
+        if self.radioButton_2.isChecked():
+            self.type_s_p = "map"
         self.show_fun()
 
 
